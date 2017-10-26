@@ -72,9 +72,9 @@ function Update(deltaTime)
 
     if flagCheck == 0 then
         player1.yPos = math.floor(yPosChange/8)*8
-        player1.yChange = 0
         if player1.yChange >= 0 then player1.onGround = true end
         if player1.yChange < 0 then player1.onGround = false end
+        player1.yChange = 0
     end
 end
 

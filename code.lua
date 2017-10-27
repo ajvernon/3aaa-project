@@ -2,6 +2,7 @@
 -- this is my game pls r8 8/8 m8
 --]]--
 
+-- player data
 player1=
 {
     -- player position and movement data
@@ -9,17 +10,22 @@ player1=
     yPos = 16,
     xChange = 0,
     yChange = 0,
+    facing = "right",
     onGround = false,
     jumpSpeed = 5.0,
 }
 
+-- various globals
 g =
 {
     gravity = .3,
 }
 
+-- loads the scenes code - commented out as it doesn't work yet
+-- LoadScript("scenes.lua")
+
 function Init()
-	BackgroundColor(0)
+	BackgroundColor(1)
 	DrawTilemap()
 	--PlaySong(false)
 end
@@ -38,10 +44,12 @@ function Update(deltaTime)
     player1.xChange = 0
     if Button(2) then
         player1.xChange = -1
+        player1.facing = "left"
     end
     
     if Button(3) then
         player1.xChange = 1
+        player1.facing = "right"
     end
 
     player1.xPos = player1.xPos + player1.xChange
